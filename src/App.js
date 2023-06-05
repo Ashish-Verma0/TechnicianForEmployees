@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Employe from "./components/employeeSignup/Employee";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/home/Home";
+import ResponsiveDrawer from "./components/sidebar/Sidebar";
+import { Box } from "@mui/material";
+import EmployeeLogin from "./components/employeeSignup/EmployeeLogin";
+const App = () => {
+  const [user, setUser] = useState("");
 
-function App() {
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    return setUser(token);
+  }, [user]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ display: "flex", objectFit: "cover" }}>
+      <ResponsiveDrawer />
+      <Box sx={{ flexGrow: 1, marginTop: 7 }}>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={user?.length ? <Home /> : <EmployeeLogin />}
+          />
+          <Route exact path="/signup" element={<Employe />} />
+        </Routes>
+        {/* <Route exact path="/login" element={<EmployeeLogin />} /> */}
+        {/* <Routes>
+        <Route exact path="/signup" element={<Employe />} />
+      </Routes> */}
+      </Box>
+    </Box>
   );
-}
+};
 
 export default App;
