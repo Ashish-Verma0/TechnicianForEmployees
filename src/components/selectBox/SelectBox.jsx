@@ -7,16 +7,16 @@ import {
   FormControl,
 } from "@mui/material";
 const names = [
-  "Humaira Sims",
-  "Santiago Solis",
-  "Dawid Floyd",
-  "Mateo Barlow",
-  "Samia Navarro",
-  "Kaden Fields",
-  "Genevieve Watkins",
-  "Mariah Hickman",
-  "Rocco Richardson",
-  "Harris Glenn",
+  "Ac Mechanic",
+  "Cooller Mechanic",
+  "Bike Mechanic",
+  "Car Mechanic",
+  "Coaching Teacher",
+  "Guard",
+  "Plumber",
+  "Electrician",
+  "Cleaning",
+  "Cooking",
 ];
 export default function MultiSelect({ onChange, data }) {
   //   const [selectedNames, setSelectedNames] = useState([]);

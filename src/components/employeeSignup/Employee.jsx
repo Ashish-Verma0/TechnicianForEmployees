@@ -23,6 +23,7 @@ const Employe = () => {
     city: "",
     state: "",
     address: "",
+    pinCode: "",
   });
   const [adhar, setAdhar] = useState("");
 
@@ -57,6 +58,7 @@ const Employe = () => {
     myForm.append("phone", data.phone);
     myForm.append("state", data.state);
     myForm.append("city", data.city);
+    myForm.append("pinCode", data.pinCode);
     myForm.append("password", password);
     myForm.append("lat", latitude);
     myForm.append("lng", longitude);
@@ -153,23 +155,38 @@ const Employe = () => {
                           </label>
                         </div>
                       </div>
-                      <div className="col-12">
-                        <select
-                          className="select form-control-lg w-100"
-                          id="gender"
-                          name="gender"
-                          value={data.gender}
-                          onChange={handleChange}
-                        >
-                          <option>Choose option</option>
-                          <option>Male</option>
-                          <option>Female</option>
-                          <option>Others </option>
-                        </select>
-                        <label className="form-label select-label ms-3">
-                          Select Gender
-                        </label>
+                      <div className="col-md-6 mb-4 d-flex align-items-center">
+                        <div className="form-outline datepicker w-100">
+                          <input
+                            type="text"
+                            className="form-control form-control-lg"
+                            id="pinCode"
+                            name="pinCode"
+                            vakue={data.pinCode}
+                            onChange={handleChange}
+                          />
+                          <label htmlFor="pinCode" className="form-label">
+                            PinCode
+                          </label>
+                        </div>
                       </div>
+                    </div>
+                    <div className="col-12">
+                      <select
+                        className="select form-control-lg w-100"
+                        id="gender"
+                        name="gender"
+                        value={data.gender}
+                        onChange={handleChange}
+                      >
+                        <option>Choose option</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Others </option>
+                      </select>
+                      <label className="form-label select-label ms-3">
+                        Select Gender
+                      </label>
                     </div>
                     <div className="row">
                       <div className="col-md-6 mb-4 pb-2">
